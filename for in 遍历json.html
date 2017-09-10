@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var json={'name':'陈亮',age:22,fun:"前端开发"};
+    alert(json.name);
+    //属性名加上字符串安全
+    for(var attr in json)
+    {
+//        alert(attr);
+        alert(json[attr]);
+    }
+    var json1={url:[1,2,3,4,5],text:['a','b','c','d']};
+    for(var attr in json1)
+    {
+        for(var i=0;i<json1[attr].length;i++)
+        {
+            alert(json1[attr][i]);
+        }
+    }
+    var attr1=[{'name':'陈亮',age:22},{fun:"前端开发"}];
+    for(var i=0;i<attr1.length;i++)
+    {
+        for(var attr in attr1[i])
+        {
+            alert(attr1[i][attr]);
+        }
+    }
+</script>
+</body>
+</html>

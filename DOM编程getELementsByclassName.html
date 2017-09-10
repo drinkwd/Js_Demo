@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    /*
+    * 原声getELementsByclassName不支持非标准浏览器
+    * */
+    window.onload= function () {
+        var oUl1=document.getElementById('ul1');
+        var oUl2=document.getElementById('ul2');
+     var aLi=getElementsbyclassName(oUl2,'li','box');
+        console.log(aLi);
+        function getElementsbyclassName(parent,tagname,className)
+        {
+            var arr=[];
+//            var aEls=parent.getElementsByTagName('*');选取parent下的所有tagName
+            var aEls=parent.getElementsByTagName(tagname);
+            for(var i=0;i<aEls.length;i++)
+            {/*
+                if(aEls[i].className==className)
+                {
+                    arr.push(aEls[i]);
+                }*/
+                var aclassName=aEls[i].className.split(' '); //把有两个class的元素分别存在数组里面
+                for(var j=0;j<aclassName.length;j++)
+                {
+                    if(aclassName[j]==className)
+                    {
+                        arr.push(aEls[i]);
+                        break;//防止手误在同一个元素上写了相同的class 会在循环一遍
+                    }
+                }
+            }
+            return arr;
+        }
+    }
+</script>
+<body>
+<ul id="ul1">
+    <li>11111</li>
+    <li class="box box">222222</li>
+    <li>3333333</li>
+    <li class="box box2">444444</li>
+    </ul>
+<ul id="ul2">
+    <li>11111</li>
+    <li class="box box">222222</li>
+    <li>3333333</li>
+    <li class="box box2">444444</li>
+</ul>
+<div id="div1">
+    <p class="box">ppppp</p>
+</div>
+</body>
+</html>

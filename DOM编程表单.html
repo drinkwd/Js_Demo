@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload=function(){
+        var oForm=document.getElementById('form1');
+        /*
+            访问表单元素 name 没有兼容性问题
+         alert(oForm.text1.value);
+         onchange：当值发生改变的时候触发
+         text textarea :当光标离开的时候如果内容有变化就触发
+         radio:标准下惦记的时候只要是值变了就会触发
+         非标准下焦点离开的的情况下就会触发
+        * */
+        oForm.text1.onchange= function () {
+            alert(this.value);
+        };
+        oForm.sex[0].onchange= function () {
+            alert(this.value);
+        };
+        oForm.a[0].onchange=function(){
+            alert(this.value);
+        };
+        oForm.city.onchange=function(){
+            alert(this.value);
+        }
+        oForm.btn.onclick= function () {
+            for(var i=0;i<oForm.sex.length;i++)
+            {
+                if(oForm.sex[i].checked)
+                {
+                    alert(oForm.sex[i].value+"被选中了");
+                }
+                else
+                    alert(oForm.sex[i].value+"没有被选中");
+
+            }
+            for(var i=0;i<oForm.a.length;i++)
+            {
+                if(oForm.a[i].checked)
+                {
+                    alert(oForm.a[i].value+"被选中了");
+                }
+                else
+                    alert(oForm.a[i].value+"没有被选中");
+
+            }
+        }
+    }
+</script>
+<body>
+    <form id="form1">
+        <input type="text" name="text1" value="内容"/>
+        <input type="radio" value="男" name="sex"/>男
+        <input type="radio" value="女" name="sex"/>女
+        <input type="checkbox" name="a" value="篮球"/>篮球
+        <input type="checkbox" name="a" value="足球"/>足球
+        <input type="checkbox" name="a" value="排球"/>排球
+        <select name="city">
+            <option value="">请选择城市</option>
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+        </select>
+        <input type="button" name="btn" value="按钮"/>
+    </form>
+</body>
+</html>

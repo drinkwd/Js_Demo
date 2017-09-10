@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{margin: 0;padding: 0 ;}
+        li{list-style: none}
+        a{width:80px;text-decoration: none;
+            color: #fff;display: block;
+            line-height: 30px;height: 30px;
+            background: gainsboro;text-align: center;border: 1px solid black}
+        ul ul li {height: 30px;line-height: 30px;background: greenyellow;text-align: center;width: 80px;border: 1px solid red;}
+        .ul{margin-left: 20px;}
+        #ul2{display: none}
+    </style>
+</head>
+<body>
+<ul class="ul" onmouseover="a()" onmouseout="b()">
+    <li class="list">
+        <a href="#" id="link" >微博</a>
+        <ul id="ul2">
+            <li>评论</li>
+            <li>私信</li>
+            <li>@我</li>
+        </ul>
+    </li>
+
+</ul>
+<script>
+    function a()
+    {
+        document.getElementById("ul2").style.display="block";
+    }
+    function b()
+    {
+        document.getElementById("ul2").style.display="none";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width: 50px;height: 50px;font-size: 30px;color: #ffffff;text-align: center;line-height: 50px;position: absolute;background: red;top: 0;left: 0}
+    </style>
+    <script>
+        window.onload= function () {
+            var oDiv=document.getElementsByTagName('div');
+            var oBtn=document.getElementById('btn');
+            var str='';
+            oBtn.onclick=function() {
+                for (var i = 0; i < 100; i++) {
+                    str += '<div>' + i + '</div>';
+                }
+                document.body.innerHTML += str;
+                for (var i = 0; i < 100; i++) {
+
+                    if (i < 10) {
+                        oDiv[i].style.left = 10 + i * 60 + 'px';
+                        oDiv[i].style.top = 30 + 'px';
+                    }
+                    else if (i <= 19) {
+                        oDiv[i].style.left = 10 + (i - 10) * 60 + 'px';
+                        oDiv[i].style.top = 30 + 70 + 'px';
+                    }
+                    else if (i <= 29) {
+                        oDiv[i].style.left = 10 + (i - 20) * 60 + 'px';
+                        oDiv[i].style.top = 30 + 140 + 'px'
+                    }
+                    else if (i <= 39) {
+                        oDiv[i].style.left = 10 + (i - 30) * 60 + 'px';
+                        oDiv[i].style.top = 210 + 30 + 'px'
+                    }
+                    else if (i <= 49) {
+                        oDiv[i].style.left = 10 + (i - 40) * 60 + 'px';
+                        oDiv[i].style.top = 280 + 30 + 'px'
+                    }
+                    else if (i <= 59) {
+                        oDiv[i].style.left = 10 + (i - 50) * 60 + 'px';
+                        oDiv[i].style.top = 350 + 30 + 'px'
+                    }
+                    else if (i <= 69) {
+                        oDiv[i].style.left = 10 + (i - 60) * 60 + 'px';
+                        oDiv[i].style.top = 420 + 30 + 'px'
+                    }
+                    else if (i <= 79) {
+                        oDiv[i].style.left = 10 + (i - 70) * 60 + 'px';
+                        oDiv[i].style.top = 490 + 30 + 'px'
+                    }
+                    else if (i <= 89) {
+                        oDiv[i].style.left = 10 + (i - 80) * 60 + 'px';
+                        oDiv[i].style.top = 560 + 30 + 'px'
+                    }
+                    else {
+                        oDiv[i].style.left = 10 + (i - 90) * 60 + 'px';
+                        oDiv[i].style.top = 660 + 'px'
+                    }
+                }
+                for (var i = 0; i < 100; i++) {
+
+                    if (i % 4 == 0) {
+                        oDiv[i].style.background = 'yellow';
+                    }
+                    else if ((i + 3) % 4 == 0) {
+                        oDiv[i].style.background = 'blue';
+                    }
+                    else if ((i + 1) % 4 == 0) {
+                        oDiv[i].style.background = 'green';
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="自动生成100个div">
+</body>
+</html>

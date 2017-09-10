@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{height: 500px;width: 30px;background: black;position: absolute;top: 0;left: 50px;}
+        #div2{height: 30px;width: 30px;background: red;position: absolute;top: 0;left: 0;}
+        #div3{width: 500px;height: 0;background: green;position: absolute;top: 0;left: 120px}
+    </style>
+    <script>
+        window.onload= function () {
+            var oDiv1=document.getElementById('div1');
+            var oDiv=document.getElementById('div2');
+            var oDiv3=document.getElementById('div3');
+            oDiv.onmousedown= function (ev) {
+                var ev=ev||event;
+                var dis=ev.clientY-this.offsetTop;
+                var maxTop=oDiv1.offsetHeight-oDiv.offsetHeight;
+                document.onmousemove= function (ev) {
+                    var ev=ev||event;
+                    var T=ev.clientY-dis;
+                    if(T<0)
+                    {
+                        T=0;
+                    }
+                    if(T>-oDiv.offsetHeight+oDiv1.offsetHeight)
+                    {
+                        T=oDiv1.offsetHeight-oDiv.offsetHeight;
+                    }
+//                    oDiv3.style.height应用比例相同可以得知  top：maxtop=height：maxheight
+                    oDiv.style.top=T+'px';
+                    var xishu=T/maxTop;
+//                    document.title=xishu;
+                    oDiv3.style.height=500*xishu+'px';
+
+                }
+                document.onmouseup= function () {
+                    document.onmousemove=document.onmouseup=null;
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <div id="div2"></div>
+</div>
+<div id="div3"></div>
+
+</body>
+</html>

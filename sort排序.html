@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <script>
+        //sort 排序是将数组中的内容转换成字符串在进行排序
+        var arr=['f','d','c','a'];
+        arr.sort();
+        alert(arr);
+        var arr1=[1,4,2,5,8,6,76];
+        arr1.sort(function (a, b) {
+            return a-b;
+        });
+        alert(arr1);
+        var arrPx=['100px','21px','10px','9px'];
+        arrPx.sort(function (a, b) {
+            return parseInt(a)-parseInt(b);
+        });
+        alert(arrPx);
+        //乱序
+        var arrsort=[1,2,3,4,5,6];
+        arrsort.sort(function (a,b) {
+            return Math.random()-0.5;
+        })
+        alert(arrsort);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{height: 400px;width: 400px;border: 1px solid black;}
+        span{font-size: 40px}
+    </style>
+</head>
+<body>
+<div></div>
+<input type="text" />
+<input type="button" value="上去" accesskey="a"/>
+<script>
+    var qDiv=document.getElementsByTagName('div')[0]
+    var aInput=document.getElementsByTagName('input');
+    var arrColor=['green','#cc3','#6fc','#9c9'];
+    aInput[1].onclick=function(){
+        var str=aInput[0].value;
+        var arr=str.split('');
+        for(var i=0;i<arr.length;i++)
+        {
+            arr[i]='<span style="background:' + arrColor[i%arrColor.length] + ';">' + arr[i] + '</span>';
+
+        }
+            qDiv.innerHTML=arr.join("");
+    }
+</script>
+</body>
+</html>

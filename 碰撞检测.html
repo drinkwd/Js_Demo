@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1{
+            width: 100px;height: 100px;background: red;position: absolute;top: 0;left: 0;}
+        #img1{position: absolute;
+            left: 500px;top: 250px;width: 100px;height:100px;}
+    </style>
+    <script>
+        /*
+         1.拖拽的时候，如果有文字被选中会产生问题
+         原因：当鼠标按下的时候，如果页面中有文字被选中，那么会触发浏览器的默认拖拽文字
+         的效果
+         解决办法：标准浏览器：阻止默认事件
+         ie ：设置全局捕获
+         拖拽图片也会有问题解决办法同上
+         * */
+        window.onload= function () {
+            var oDiv=document.getElementById('div1');
+            var oImg=document.getElementById('img1');
+            oDiv.onmousedown= function (ev) {
+                var ev=ev||event;
+                var disx=ev.clientX-this.offsetLeft;
+                var disy=ev.clientY-this.offsetTop;
+                if(oDiv.setCapture)
+                {
+                    oDiv.setCapture();
+                }
+                document.onmousemove=function(ev){
+                    ev=ev||event;
+                    var L=ev.clientX-disx;
+                    var T=ev.clientY-disy;
+                    var L1=L;
+                    var R1=L+oDiv.offsetWidth;
+                    var T1=T;
+                    var B1=T+oDiv.offsetHeight;
+                    var L2=oImg.offsetLeft;
+                    var R2=L2+oImg.offsetWidth;
+                    var T2=oImg.offsetTop;
+                    var B2=T2+oImg.offsetHeight;
+                    if(L1>R2||R1<L2||T1>B2||B1<T2)
+                    {
+                        oImg.src='img/1.png'
+                    }
+                    else{
+                        oImg.src='img/2.jpg'
+                    }
+                    oDiv.style.left=L+'px';
+                    oDiv.style.top=T+'px';
+                };
+                document.onmouseup=function(){
+                    document.onmousemove=document.onmouseup=null;
+                    //释放全局捕获
+                    if(oDiv.releaseCapture)
+                    {
+                        oDiv.releaseCapture();
+                    }
+                };
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+123456798
+<div id="div1"></div>
+<img src="img/1.png" id="img1"/>
+</body>
+</html>

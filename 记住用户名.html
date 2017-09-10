@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function(){
+            var oText=document.getElementById('text');
+            var oBtn1=document.getElementById('btn1');
+            var oBtn2=document.getElementById('btn2');
+            if(getCookie('username'))
+            {
+                oText.value=getCookie('username');
+            }
+            oBtn1.onclick= function () {
+                alert('登录成功');
+                setCookie('username',oText.value,1);
+
+            }
+            oBtn2.onclick= function () {
+                remove('username');
+                oText.value='';
+            }
+            function setCookie(key,value,t)
+            {
+                var date=new Date();
+                date.setDate(date.getDate()+t);
+                document.cookie=key+'='+value+';expires='+date.toGMTString();
+            }
+            function getCookie(key)
+            {
+                var arr1=document.cookie.split('; ');
+                for(var i=0;i<arr1.length;i++)
+                {
+                    var arr2=arr1[i].split('=');
+                    if(arr2[0]==key)
+                    {
+                        return decodeURI(arr2[1]);
+                    }
+                }
+            }
+            function remove(key)
+            {
+                setCookie(key,'',-1);
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="text" id="text"/>
+<input type="button" value="登录" id="btn1"/>
+<input type="button" value="删除" id="btn2"/>
+</body>
+</html>

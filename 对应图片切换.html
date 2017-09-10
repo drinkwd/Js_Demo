@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{background: rosybrown}
+        #div{width: 400px;height: 500px;margin: 0 auto;background: #cccccc;position: relative;background: url("img/loader_ico.gif" ) no-repeat center center }
+        #div img{width: 400px;height: 500px;}
+        #div ul{padding: 0;margin: 0;position: absolute;top: 0px;right: -50px;}
+        #div li{background: #cccccc;width: 40px;height: 40px;margin-bottom: 4px;list-style: none;}
+        #div .active{background: yellow;}
+        #div span,#div p{position: absolute;left:0;text-align: center;height: 30px;width: 400px;
+        line-height: 30px;color: #ffffff;background: black;opacity: 0.6;font-size: 24px;font-weight: bolder;
+        }
+        #div span{top:0;}
+        #div p{bottom: 0;margin: 0;}
+    </style>
+    <script>
+        window.onload= function () {
+            var oDiv=document.getElementById('div');
+            var oSpan=oDiv.getElementsByTagName('span')[0];
+            var oUl=oDiv.getElementsByTagName('ul')[0];
+            var aLi=oDiv.getElementsByTagName('li');
+            var oImg=oDiv.getElementsByTagName('img')[0];
+            var oP=oDiv.getElementsByTagName('p')[0];
+            var arrUrl=['img/2.png','img/3.png','img/4.png','img/5.png'];
+            var arrText=['第一张图片','第二张图片','第三张图片','第四张图片'];
+            var num=0;
+            var oLdli=null;
+            for(var i=0;i<arrUrl.length;i++)
+            {
+                oUl.innerHTML+='<li></li>';
+            }
+            //            初始化代码
+            oLdli=aLi[num];
+            oSpan.innerHTML=num+1+'/'+arrText.length;
+            oP.innerHTML=arrText[num];
+            oImg.src=arrUrl[num];
+            aLi[num].className='active';
+            for(var i=0;i<aLi.length;i++)
+            {
+                aLi[i].index=i;
+                aLi[i].onclick= function () {
+                    oImg.src=arrUrl[this.index];
+                    oSpan.innerHTML=this.index+1+'/'+arrUrl.length;
+                    oP.innerHTML=arrText[this.index];
+                    /*
+                    全部清空 当前添加
+                    for(var j=0;j<aLi.length;j++)
+                    {
+                        aLi[j].className='';
+                    }
+                    this.className='active';*/
+                    oLdli.className=  '';
+                    oLdli=this;
+                    this.className='active';
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div">
+    <span>图片长度正在计算中</span>
+    <img src="" />
+    <ul>
+    </ul>
+    <p>图片正在加载中</p>
+</div>
+</body>
+</html>

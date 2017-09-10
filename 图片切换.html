@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #btn{text-align: center;margin-bottom: 5px}
+        p{margin: 0px;padding: 0 ;text-align: center}
+        #box{width: 580px;
+            height: 325px;margin: 50px auto;border: 10px solid #cccccc;position: relative;background: black;}
+       #box a{text-decoration: none;display: inline-block;width: 40px;height: 40px;background: black;
+        color: #fff;text-align: center;line-height: 40px;font-weight: bolder;
+            opacity: 0.4;border: 2px solid #cccccc;position: absolute;font-size: 30px;
+        }
+       #box a:hover{opacity: 0.8}
+        #up{top:140px;left: 0px}
+        #next{
+            top: 140px;Left:536px}
+        #downspan,#upspan{position: absolute;background: black;display: block;color: #ffffff;height: 30px;line-height: 30px;
+            text-align: center;width: 580px;opacity: 0.6;font-weight: bolder}
+        #downspan{bottom: 0px;left: 0px;}
+        #upspan{top: 0px;left: 0px}
+        img{width: 580px;height: 325px}
+    </style>
+    <script>
+        window.onload=function(){
+            var oBtn1=document.getElementById('btn1');
+            var oBtn2=document.getElementById('btn2');
+            var oP=document.getElementById('p');
+            var oNext=document.getElementById('next');
+            var oUp=document.getElementById('up');
+            var oUpspan=document.getElementById('upspan');
+            var oDownspan=document.getElementById('downspan');
+            var oImg=document.getElementById('img');
+            var arr=['img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+            var num=0;
+            function abc() {
+               oImg.src = arr[num];
+               oDownspan.innerHTML = '这是第' + (num + 1) + '张图片';
+               oUpspan.innerHTML = (num + 1) + '/' + arr.length;
+           }
+            abc();
+            oBtn2.onclick=function(){
+                oP.innerHTML='这是顺序图片方式';
+                xunhuan();
+            }
+            oBtn1.onclick=function(){
+                oP.innerHTML='这是循环图片方式';
+                xunhuan();
+            }
+               function xunhuan() {
+                   if (oP.innerHTML == '这是循环图片方式') {
+                       oNext.onclick = function () {
+                           if (num == arr.length - 1) {
+                               num = -1;
+                           }
+                           num++;
+                           abc();
+                       }
+                       oUp.onclick = function () {
+                           if (num == 0) {
+                               num = arr.length;
+                           }
+                           num--;
+                           abc();
+                       }
+                   }
+                   else
+                   {
+                       oNext.onclick = function () {
+                           if (num == arr.length - 1) {
+                               alert('该图片是最后一张了');
+                               num=arr.length-2;
+                           }
+                           num++;
+                           abc();
+                       }
+                       oUp.onclick = function () {
+                           if (num == 0) {
+                               alert('这是第一张图片了');
+                               num =1;
+                           }
+                           num--;
+                           abc();
+                       }
+                   }
+               }
+            xunhuan();
+        }
+    </script>
+</head>
+<body>
+<div id="btn">
+    <input type="button" id="btn1" value="循环查看"/>
+    <input type="button" id="btn2" value="顺序查看"/>
+</div>
+<p id="p">这是循环图片方式</p>
+<div id="box">
+    <img src="" id="img">
+    <a href="#" id="up"><</a>
+    <a href="#" id="next">></a>
+    <span id="upspan">1/4</span>
+    <span id="downspan">这是第1张图片</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{margin: 0}
+        #div1{width: 100px;height: 100px;position: absolute;top: 100px;left: 1000px;background: red;}
+    </style>
+    <script>
+        window.onload=function(){
+            var oBtn = document.getElementById('btn1');
+            var oDiv = document.getElementById('div1');
+                oBtn.onclick = function () {
+                    domove(300);
+			alert(oDiv.left);	
+                }
+            function domove(taget) {
+                    var time = null;
+                    var speed=0;
+                    if(oDiv.offsetLeft>taget)
+                    {
+                        speed=-7;
+                    }
+                    else
+                    {
+                        speed=7
+                    }
+                    clearInterval(time);
+                    time = setInterval(function () {
+                        if (Math.abs(oDiv.offsetLeft -taget)<7) {
+                            oDiv.style.left=taget+'px';
+                            clearInterval(time);
+                        }
+                        else
+                            oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    }, 30)
+                }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动" id="btn1"/>
+<div id="div1"></div>
+</body>
+</html>

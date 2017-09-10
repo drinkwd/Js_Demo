@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    alert(sum(1,2,3,4,'+'));
+    alert(sum(1,2,3,4,5, '-'));
+    function sum(){
+        var n=0;
+        if(arguments[arguments.length-1]=='+') {
+            for (var i = 0; i < arguments.length-1; i++) {
+                n += arguments[i];
+            }
+            return n;
+        }
+            else
+            {
+                var a=arguments[0];
+                for(var i=1;i<arguments.length-1;i++)
+                {
+                    a=a-arguments[i];
+                }
+                return a;
+            }
+    }
+</script>
+</body>
+</html>

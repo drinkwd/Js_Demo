@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div id="div1" class="box" title="div" mydate="wangdong" style="width: 100px;height: 100px;background: red;"></div>
+<script>
+    var oDiv=document.getElementById('div1');
+    alert(oDiv.id);
+    alert(oDiv.getAttribute('id'));
+    //直接访问不能访问自定义属性
+    alert(oDiv.mydate);
+    //可以访问任何属性 有两种特殊的属性  style onclick
+    alert(oDiv.getAttribute('mydate'));
+    alert(oDiv.getAttribute('style'));
+    alert(oDiv.style);
+
+</script>
+
+
+</body>
+</html>

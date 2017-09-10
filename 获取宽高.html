@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width: 200px;height: 250px;background: red;}
+    </style>
+
+    <script>
+        window.onload=function(){
+            var aInput=document.getElementsByTagName('input')[0];
+            var aDiv=document.getElementsByTagName('div')[0];
+            aInput.onclick=function(){
+                alert(getComputedStyle(aDiv).width);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="按钮"/>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width: 100px;height: 100px;margin-top: 50px;background: red;font-size: 12px}
+    </style>
+    <script>
+        window.onload= function () {
+            var aDiv=document.getElementsByTagName('div');
+            for(var i=0;i<aDiv.length;i++)
+            {
+                aDiv[i].onmouseover=function(){
+                    startmove(this,'fontSize',100);
+                }
+                aDiv[i].onmouseout= function () {
+                    startmove(this,'fontSize',12);
+                }
+            }
+        };
+        function getStyle(obj,attr)
+        {
+           return obj.currentStyle ? obj.currentStyle[attr]:getComputedStyle(obj)[attr];
+        }
+        function startmove(obj,attr,taget)
+        {
+            clearInterval(obj.timer);
+            obj.timer=setInterval(function(){
+                var icuur=parseInt(getStyle(obj,attr));
+            var speed = parseInt((taget-icuur)/8);
+            speed>0 ? Math.ceil(speed):Math.floor(speed);
+            if (icuur== taget) {
+                clearInterval(obj.timer);
+            }
+            else
+                obj.style[attr] = icuur+ speed + 'px';
+            },30)
+        }
+    </script>
+</head>
+<body>
+<div>123456789</div>
+<div></div>
+<div></div>
+</body>
+</html>

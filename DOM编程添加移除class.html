@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        window.onload=function() {
+            var oDiv = document.getElementById('div');
+            var oDiv2 = document.getElementById('div2');
+            addClass(oDiv, 'box');//添加class
+            removeClass(oDiv2,'box1');//删除class
+            function addClass(obj, classname) {
+                //如果当前元素没有class
+                if (obj.className == '') {
+                    obj.className = classname;
+                }
+                else //当前元素有class
+                {
+
+                    //要添加的class原先不存在
+                    var aclassName = obj.className.split(' ');
+                    var _index = index(aclassName, classname);
+                    if (_index == -1)
+                        obj.className += ' ' + classname;
+                    //要添加的class原先存在
+
+                }
+            }
+            function index(arr, yuansu) {
+                for (var i = 0; i < arr.length; i++) {
+                    if (arr[i] == yuansu) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+            function removeClass(obj,classname) {
+                var aclassName = obj.className.split(' ');
+                index1(aclassName, classname);
+                function index1(arr, yuansu) {
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i] == yuansu) {
+                            arr.splice(i, 1);
+                            obj.className=arr.join();
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div" class="box1">div1</div>
+<div id="div2" class="box box1 box2">div2</div>
+</body>
+</html>

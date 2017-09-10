@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    * cookie:存储数据；当用户访问了某个网站的时候，我们就可以通过cookie来像访问者电脑上的数据
+    * 1.不同的浏览器存放的cookie位置不一样，也是不能通用的
+    * 2.cookie的存储是以域名的形式进行区分的
+    * 3.cookie的数据可以设置名字的
+    * 4.一个域名下寻访的cookie的个数是有限制的不同的浏览器存放的个数也不一样
+    * 当我们通过document.cookie来获取网站下的cookie的时候，会得到字符串的形式的值，他包含了
+    * 当前网站下的所有cookie。他会把所有的cookie通过发一个分号+空格的形式展示出来
+    *
+    * 如果我们想cookie长时间存放需要给他设置一个过期的时间（时间必须是一个字符串对象）
+    * document。cookie=‘名称=值；expires=+时间’；
+    * */
+    window.onload= function () {
+        var date=new Date();
+        date.setDate(date.getDay()+1);
+        //alert(typeof date.toGMTString());转换成string
+        //在存储特殊字符的时候 需要进行编码 encode 解码decode
+       // document.cookie='username='+encodeURI('leo\n你好')+';expires='+date;
+        document.cookie='username=leo;expires='+date;
+        document.cookie='age=23';
+        //alert(decodeURI(document.cookie));
+        function setCookie(key,value,t)
+        {
+            var date=new Date();
+            date.setDate(date.getDate()+t);
+            document.cookie=key+'='+value+';expires='+date.toGMTString();
+        }
+
+        function getCookie(key)
+        {
+            var arr1=document.cookie.split('; ');
+            for(var i=0;i<arr1.length;i++)
+            {
+                var arr2=arr1[i].split('=');
+                if(arr2[0]==key)
+                {
+                    return decodeURI(arr2[1]);
+                }
+            }
+        }
+        function remove(key)
+        {
+            setCookie(key,'',-1);
+        }
+        alert(getCookie('username'));
+        setCookie('sex','男','1');
+    }
+</script>
+</body>
+</html>

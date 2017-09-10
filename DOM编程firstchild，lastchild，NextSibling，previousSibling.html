@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul id="ul1">
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    /*
+    元素.firstChild 属性只读 获取元素的第一个子节点
+    标准浏览器下会包含文本节点
+    非标准下只包含元素节点
+    如何在标准浏览器下获取第一个元素节点：fristElementChild
+    在没有子节点的时候会有一些小问题：用 元素.children[0]去获取
+    var oFrist=元素.firstElementChild||元素.firstChild;
+    oFrist..style.background='red';
+    lastChild最后一个子节点
+    nextSibling下一个兄弟节点
+    previousSibling上一个兄弟节点
+    它们四个的问题都是一样的在没有子节点的时候会出现一些问题
+    * */
+//    if(oUl.firstElementChild)
+//    {
+//        oUl.firstElementChild.style.background='red';
+//    }
+//    else
+//    {
+//        oUl.firstChild.style.background='red';
+//    }
+    if(oUl.children[0].previousElementSibling)
+    {
+        oUl.children[0].previousElementSibling.style.background='red';
+    }
+    else{
+        alert("没有第一个元素节点");
+    }
+
+</script>
+</body>
+</html>

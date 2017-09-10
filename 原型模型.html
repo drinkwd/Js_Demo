@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function Person() {
+
+        }
+        Person.prototype.name='chenliang';
+        Person.prototype.age=34;
+        Person.prototype.sayName=function () {
+            alert(this.name);
+        };
+        var Person1=new Person();
+        var Person2=new Person();
+        Person1.name='wangdong';
+        delete Person1.name;
+        alert(Person1.name);
+        alert(Person2.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

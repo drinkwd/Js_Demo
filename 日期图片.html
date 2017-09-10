@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="p"></p>
+<img src="image/0.JPG" />
+<img src="image/0.JPG" />
+<img src="image/colon.JPG" />
+<img src="image/0.JPG" />
+<img src="image/0.JPG" />
+<img src="image/colon.JPG" />
+<img src="image/0.JPG" />
+<img src="image/0.JPG" />
+<script>
+    window.onload=function(){
+        var aImg=document.getElementsByTagName('img');
+        var timer=null;
+        time();
+        setInterval(time,1000);
+        setTimeout()
+        function time() {
+            var mytime = new Date();
+            var p=document.getElementById('p');
+            var iHour = mytime.getHours();
+            var iMinutes = mytime.getMinutes();
+            var iSec = mytime.getSeconds();
+            var str = '';
+            str = abc(iHour)+':' + abc(iMinutes)+':' + abc(iSec);
+            p.innerHTML = str;
+            for(var i=0;i<aImg.length;i++)
+            {
+                if(i==2||i==5)
+                {
+                    aImg[i].src='image/colon.JPG';
+                }
+                else
+                    aImg[i].src = 'image/' + str.charAt(i) + '.JPG';
+
+            }
+            function abc(n) {
+                return n < 10 ? '0' + n : '' + n;
+            }
+        }
+        function sandong(){
+            aImg[2].style.display=none;
+            aImg[5].style.display=none;
+        }
+    };
+</script>
+</body>
+</html>

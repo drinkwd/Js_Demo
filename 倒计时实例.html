@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .t1{
+            width: 400px;}
+    </style>
+    <script>
+window.onload= function () {
+    var aInput = document.getElementsByTagName('input');
+
+        aInput[2].onclick = function () {
+            clearInterval(aInput.time);
+            aInput.time=setInterval(daojishi,1000);
+                function daojishi() {
+                var date = new Date();
+                var newdat = new Date(aInput[0].value)
+                var t = Math.floor((newdat - date) / 1000);
+                    if(t>=0)
+                    {
+                        var str = Math.floor(t / 86400) + '天' + Math.floor(t % 86400 / 3600) + '时' + Math.floor(t % 86400 % 3600 / 60) + '分' + t % 60 + '秒';
+                        aInput[1].value = str;
+                    }
+                    else
+                    {
+                        clearInterval(aInput.time);
+                    }
+        }
+    }
+}
+    </script>
+</head>
+<body>
+距离<input type="text" class="t1" value="November,27,2013 22:3:2"/><br/>
+还剩<input type="text" class="t1"/>
+<input type="button" value="开始倒计时吧"/>
+</body>
+</html>

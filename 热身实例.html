@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+    body{margin: 0}
+    ul {margin: 0}
+    li{list-style: none;}
+    #box{width: 715px;height: 396px;background: #efefef;padding-left:25px;padding-top: 24px;position: relative }
+    strong{font-size: 24px}
+    #Btn{display: inline-block;text-align: center;color: #ffffff;background: red;width: 100px;height: 40px;font-weight: bolder;
+    line-height: 40px;
+    }
+    #smallbox{width: 100px;height: 100px;background: #ffffff;border: 2px solid black}
+    #hidden{position: absolute;top: 50%;left: 50%;display: none;padding-top: 10px;text-align: center}
+    ul  li a{text-decoration:none;display: inline-block;height: 30px;line-height: 30px;padding-left: 12px;padding-right: 12px;
+        color: #ffffff;}
+    a#red{background: red}
+    a#blue{background: blue;margin-left: 5px}
+    a#yellow{background: yellow;margin-left: 5px}
+    a:hover{border: 1px solid black;}
+    #width a{color: #bd948c;text-align: left;}
+    #height a{color:#bd948c;text-align: left;}
+    #reset,#submit{display: inline-block;
+        background: #002952;height: 31px;line-height: 31px;padding-left: 17px;padding-right: 17px;color: #ffffff}
+    .submit{position: relative;left: 10px}
+</style>
+    <script>
+        window.onload= function () {
+            var oBtn=document.getElementById('Btn');
+            var osmallbox=document.getElementById('smallbox');
+            var obox=document.getElementById('box');
+            var oHidden=document.getElementById('hidden');
+            var ored=document.getElementById('red');
+            var oyellow=document.getElementById('yellow');
+            var oblue=document.getElementById('blue');
+            var oa=document.getElementById('haha');
+            var oreset=document.getElementById('reset');
+            oBtn.onclick=function(){
+                    oHidden.style.display='block';
+                    obox.style.background='#808080';
+                    oHidden.style.background="#fff";
+                    osmallbox.style.background='#808080';
+            };
+            ored.onclick=function()
+            {
+                osmallbox.style.background='red';
+            }
+            oblue.onclick=function()
+            {
+                osmallbox.style.background='blue';
+            }
+            oyellow.onclick=function()
+            {
+                osmallbox.style.background='yellow';
+            }
+            oa.onclick=function()
+            {
+                osmallbox.style.width=200+'px';
+            }
+            oreset.onclick=function()
+            {
+                osmallbox.style.width=100+'px';
+                osmallbox.style.height=100+'px';
+                osmallbox.style.background='#fff'
+                osmallbox.style.border=10+'px';
+                osmallbox.style.borderColor='black';
+            }
+        };
+    </script>
+</head>
+<body >
+<div id="box">
+    <strong >请为下面的div设置样式:</strong>
+    <div id="Btn">点击设置</div>
+    <div id="smallbox"></div>
+<div id="hidden">
+    <ul>
+        <li>请选择背景色：<a href="#" id="red">红</a><a href="#" id="yellow">黄</a><a href="#" id="blue">蓝</a></li>
+        <li id="width">请选择宽(px)：<a href="#" id="haha">200</a><a href="#">300</a><a href="#">400</a></li>
+        <li id="height">请选择高(px): <a href="#">200</a><a href="#">300</a><a href="#">400</a></li>
+    </ul>
+    <div id="reset">恢复</div><div id="submit" class="submit">确认</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{margin: 0}
+        #div1{width: 100px;height: 100px;position: absolute;top: 100px;left: 0px;background: red;}
+    </style>
+    <script>
+        /*缓冲运动 越靠近终点 速度越慢
+        * */
+        window.onload=function(){
+            domove(500);
+            function domove(taget) {
+                var oBtn = document.getElementById('btn1');
+                var oDiv = document.getElementById('div1');
+                var time = null;
+               // var speed = (taget-oDiv.offsetLeft);
+                oBtn.onclick = function () {
+                    clearInterval(time);
+                    time = setInterval(function () {
+                        var speed = parseInt((taget-oDiv.offsetLeft)/8);
+                        if(speed>0)
+                        {
+                            Math.ceil(speed);
+                        }
+                        else
+                            Math.floor(speed);
+                        if (oDiv.offsetLeft == taget) {
+                            clearInterval(time);
+                        }
+                        else
+                            oDiv.style.left = oDiv.offsetLeft + speed + 'px';
+                    },30)
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="开始运动" id="btn1"/>
+<div id="div1"></div>
+</body>
+</html>

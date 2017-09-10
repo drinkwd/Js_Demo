@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload= function () {
+        var aInput=document.getElementsByTagName('input');
+        var oUl=document.getElementById('ul1');
+        aInput[1].onclick= function () {
+            /*
+             document.createElement(标签名称); 创建元素
+            var oLi=document.createElement('li');
+            oLi.innerHTML=aInput[0].value;
+             * */
+            /*
+            * 添加到页面中  父级.appendChild（要添加的元素）方法 追加子元素
+            * 在父级的子节点最后一个进行添加
+            * oUl.appendChild(oLi);
+            * */
+            /*添加到页面中  父级.insertBefore（新的元素，被插入的元素）方法 在指定的元素前面插入一个新元素
+                在IE下如果第二个参数的节点不存在会报错
+                其他浏览器如果第二个参数不存在会以appendChild的形式添加第一个元素
+            if(oUl.children[0])
+            {
+                oUl.insertBefore(oLi,oUl.children[0]);
+            }
+            else
+            {
+                oUl.appendChild(oLi);
+            }*/
+           /*
+            父级.removeChild(要删除的元素);删除元素
+           var oLi=document.createElement('li');
+            oLi.innerHTML=aInput[0].value;
+            var oA=document.createElement('a');
+            oA.innerHTML='删除';
+            oA.href='javascript:;';
+            oUl.appendChild(oLi);
+            oLi.appendChild(oA);
+            oA.onclick= function () {
+                oUl.removeChild(this.parentNode);
+            }*/
+        }
+
+    }
+</script>
+<body>
+<input type="text" /><input type="button" value="留言"/>
+<ul id="ul1"></ul>
+</body>
+</html>

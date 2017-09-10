@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--回车算作一个文本节点
+非标准浏览器只包含元素节点以下不会包含非法嵌套的节点
+标准浏览器包含元素节点和文本节点也会包含非法嵌套的节点例如ul下有p标签等等。。。
+childNodes子节点
+NodeType属性类型 返回值是短整形
+文本节点：3 对象节点：1 属性节点：2
+-->
+<ul id="ul1">
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    /*for(var i=0;i<oUl.childNodes.length;i++)
+    {
+        if(oUl.childNodes[i].nodeType==1)
+        {
+            oUl.childNodes[i].style.background='red';
+        }
+    }*/
+    alert(oUl.childNodes.length);
+</script>
+</body>
+</html>

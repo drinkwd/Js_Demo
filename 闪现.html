@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    div{
+        width: 80px; height: 40px;background: red;}
+</style>
+<body>
+<div id="div"></div>
+<script>
+    var oDiv=document.getElementById('div');
+    var i=1;
+    setInterval(abc,1000);
+    function abc() {
+        if(i)
+        {
+            oDiv.style.display='block';
+            i=0;
+        }
+        else{
+            oDiv.style.display='none';
+            i=1;
+        }
+
+
+    }
+
+</script>
+</body>
+</html>

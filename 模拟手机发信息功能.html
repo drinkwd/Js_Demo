@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #box{width: 294px;height: 596px;background: url("img/未标题-1.png") no-repeat;padding-left: 25px}
+        #box1{text-align: center;border: 1px solid gray;width: 220px;position: relative;top: 100px}
+        #box2{position:relative;top:90px;height: 380px;width: 225px;overflow: auto;padding-left: 5px}
+        .right{text-align: right}
+       .left{text-align: left}
+    </style>
+    <script>
+        window.onload=function(){
+          var oBtn=document.getElementById('btn1');
+            var oText=document.getElementById('text1');
+            var oBox=document.getElementById('box2');
+            var oSpan=document.getElementById('span1');
+//            不用数组的方式做
+//            var arr=['<img src="img/2017-01-22_161321.png "width="20" height="20">','<img src="img/2017-01-23_094715.png">'];
+            var onOff=true;
+            var onOff1=1;
+            oBtn.onclick=function(){
+                if(oText.value=='')
+                {alert("写点啥吧，要不发不出去");}
+                else  if(onOff1==1)
+                {
+                    oBox.innerHTML='<div class="left"><img   src="img/2017-01-22_161321.png" width="20" height="20"/><span>'+oText.value+ '</span></div>' + '<br />'+oBox.innerHTML;
+                    oText.value='';
+                }
+                else
+                {
+                    oBox.innerHTML= '<div class="right"><span> '+oText.value+' </span><img src="img/2017-01-23_094715.png" /></div>' + '<br />'+ oBox.innerHTML;
+                    oText.value='';
+                }
+
+            };
+            oSpan.onclick=function(){
+                if(onOff)
+                {
+                    oSpan.src='img/2017-01-23_094715.png';
+                    onOff=false;
+                    onOff1=2;
+
+                }
+                else
+                {
+                    oSpan.src='img/2017-01-22_161321.png';
+                    onOff=true;
+                    onOff1=1;
+                }
+
+            }
+
+        };
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="box2" ></div>
+    <div id="box1">
+        <img src="img/2017-01-22_161321.png" id="span1" width="20"height="20"/>
+        <input type="text" id="text1" size="10">
+        <input type="button" id="btn1" value="发送">
+    </div>
+</div>
+</body>
+</html>

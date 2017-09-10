@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<table border="1" width="100%">
+    <tr>
+        <td>cell_1 1</td>
+        <td>cell_1 2</td>
+    </tr>
+    <tr>
+        <td>cell_2 1</td>
+        <td>cell_2 2</td>
+    </tr>
+</table>-->
+<!--js动态创建表格-->
+<script>
+    var table=document.createElement('table');
+    table.border=1;
+    table.width='100%';
+    //var tbody=document.createElement('tbody');
+    //table.appendChild(tbody);
+    //创建第一行
+    table.insertRow(0);
+    table.rows[0].insertCell(0);
+    table.rows[0].cells[0].appendChild(document.createTextNode('cell_1 1'));
+    table.rows[0].insertCell(1);
+    table.rows[0].cells[1].appendChild(document.createTextNode('cell_1 2'));
+    document.body.appendChild(table);
+</script>
+</body>
+</html>

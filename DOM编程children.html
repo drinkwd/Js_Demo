@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--
+标准浏览器包含元素节点
+非标准浏览器包含元素节点但是非法嵌套的节点不会在内
+-->
+<ul id="ul1">
+    <li>11111</li>
+    <li>22222</li>
+    <li>33333</li>
+    <li>44444</li>
+</ul>
+<script>
+    var oUl=document.getElementById('ul1');
+    for(var i=0;i<oUl.children.length;i++)
+    {
+            oUl.children[i].style.background='red';
+    }
+</script>
+</body>
+</html>

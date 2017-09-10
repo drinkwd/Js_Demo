@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        p{display: block;height: 100px;width: 250px;margin: 100px auto;
+            background: greenyellow;border: 10px solid gray;}
+    </style>
+    <script>
+        window.onload=function(){
+            var ap=document.getElementsByTagName('p')[0];
+            var aSpan=document.getElementsByTagName('span')[0];
+            var aA=document.getElementsByTagName('a')[0];
+            var str=aSpan.innerHTML;
+            var oNoff=true
+            aA.onclick=function(){
+                if(oNoff)
+                {
+                    aSpan.innerHTML=str.substring(0,20);
+                    aA.innerHTML='>>展开';
+                    oNoff=false;
+
+                }
+                else{
+                    aSpan.innerHTML=str;
+                    aA.innerHTML=">>收缩";
+                    oNoff=true;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<p><span>今天是你的生日我的中国清晨我放飞起义UN啊别
+    不要问我的家是不是有神话我知道树上住着白月牙王东
+    我爱你今天是你的生日我的中国清晨我按....</span><a href="#">>>收缩</a></p>
+</body>
+</html>
